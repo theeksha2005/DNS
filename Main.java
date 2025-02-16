@@ -1,41 +1,50 @@
-package queueStack;
+package Tutorial;
 
 public class Main {
     public static void main(String[] args) {
+        LinkedList list = new LinkedList();
 
-        FIFOQueue<Integer> queue = new FIFOQueue<>();
+        // Add nodes
+        list.append(10);
+        list.append(20);
+        list.append(30);
 
-        // Enqueue elements
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
+        // Display the list
+        System.out.println("Initial list:");
+        System.out.println(list);
 
-        // Display the queue
-        System.out.println("Initial Queue: " + queue);
+        // Insert at the beginning
+        list.insertBeginning(5);
+        System.out.println("After inserting 5 at the beginning:");
+        System.out.println(list);
 
-        // Peek at the front element
-        System.out.println("Front element: " + queue.peek());
+        // Insert after a specific value
+        list.insertAfter(15, 10);
+        System.out.println("After inserting 15 after 10:");
+        System.out.println(list);
 
-        // Dequeue elements
-        System.out.println("Dequeued: " + queue.dequeue());
-        System.out.println("Queue after dequeue: " + queue);
+        // Insert before a specific value
+        list.insertBefore(18, 20);
+        System.out.println("After inserting 18 before 20:");
+        System.out.println(list);
 
-        // Add another element
-        queue.enqueue(40);
-        System.out.println("Queue after "
-        		+ "enqueue 40: " + queue);
-        
-        QueueStack<Integer> stack = new QueueStack<>();
-        
-        stack.push(queue.dequeue());
-        stack.push(queue.dequeue());
-        stack.push(queue.dequeue());
-        
-        System.out.println("Initial Stack: " + stack);
-        
-      // Peek at the top element
-      System.out.println("Top element: " + stack.peek());
-//
+        // Find the last node
+        Node last = list.findLast();
+        System.out.println("Last node is: " + (last != null ? last.data : "null"));
+
+        // Delete the first node
+        list.deleteFirst();
+        System.out.println("After deleting the first node:");
+        System.out.println(list);
+
+        // Delete the last node
+        list.deleteLast();
+        System.out.println("After deleting the last node:");
+        System.out.println(list);
+
+        // Remove a specific node
+        list.delete(18);
+        System.out.println("After deleting 18:");
+        System.out.println(list);
     }
 }
-
